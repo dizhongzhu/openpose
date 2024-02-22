@@ -359,6 +359,10 @@ namespace op
         // Datum Object
         py::class_<Datum, std::shared_ptr<Datum>>(m, "Datum")
             .def(py::init<>())
+            .def("getPoseKeypoints", &Datum::getPoseKeypoints)
+            .def("getFaceKeypoints", &Datum::getFaceKeypoints)
+            .def("getHandKeypointsL", &Datum::getHandKeypointsL)
+            .def("getHandKeypointsR", &Datum::getHandKeypointsR)
             .def_readwrite("id", &Datum::id)
             .def_readwrite("subId", &Datum::subId)
             .def_readwrite("subIdMax", &Datum::subIdMax)

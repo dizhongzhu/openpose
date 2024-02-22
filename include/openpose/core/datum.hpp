@@ -332,7 +332,33 @@ namespace op
          */
         Datum clone() const;
 
-
+		 /**
+         * Quick fix to overcome Deallocating None error in python
+         */
+         Array<float> getPoseKeypoints() {
+            if(!poseKeypoints.empty())
+                return poseKeypoints;
+            else
+                return Array<float>(1,-1000);
+         }
+         Array<float> getFaceKeypoints() {
+            if(!faceKeypoints.empty())
+                return faceKeypoints;
+            else
+                return Array<float>(1,-1000);
+         }
+         Array<float> getHandKeypointsL() {
+            if(!handKeypoints.empty())
+                return handKeypoints[0];
+            else
+                return Array<float>(1,-1000);
+         }
+         Array<float> getHandKeypointsR() {
+            if(!handKeypoints.empty())
+                return handKeypoints[1];
+            else
+                return Array<float>(1,-1000);
+         }
 
 
 
